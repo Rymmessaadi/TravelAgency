@@ -1,13 +1,13 @@
 package com.ditrraacademy.travelagency.core.destination;
 
+import com.ditrraacademy.travelagency.core.voyage.Voyage;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -18,6 +18,10 @@ public class Destination {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String titre;
+	private String nom;
 	private String description;
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "destination")
+	private List<Voyage>voyages;
 }

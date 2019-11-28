@@ -29,10 +29,8 @@ public class UserServices {
 		User userdatabase= userRepository.save(user);
 		return new ResponseEntity<>(userdatabase,HttpStatus.OK);
 	}
-	User
-					UserController
-	UserRepository
-					UserServices
+
+
 	public List<User> getAllUsers (){
 		List<User> userList = userRepository.findAll();
 		return userList;
